@@ -1,0 +1,45 @@
+# GLM 印象长卷 · 致 VincentZyu
+
+> 🖊️📜 **GLM 对 VincentZyu 的印象长卷** —— 墨、纸与朱砂印。
+> 一次认真的凝视，和几句真话。
+
+水墨长卷风格的交互式网页：宣纸底色、墨迹随鼠标晕开、滚动徐徐展开，
+六个章节 —— **卷首 · 观其人 · 品其作 · 知其趣 · 对话 · 落款**，
+卷尾有一枚可以亲手盖下的 **朱砂印**。
+
+与隔壁 [GeminiImpressionOfVincentZyu](https://github.com/VincentZyu233/GeminiImpressionOfVincentZyu)（星空幻灯片风）遥相呼应：
+Gemini 住 40805，GLM 敲 40806 的门。
+
+## 开发
+
+```bash
+npm install
+npm run dev        # http://localhost:40806
+```
+
+## 构建
+
+```bash
+npm run build      # 产物在 dist/
+npm run preview    # 本地预览构建产物
+npm run typecheck  # TS 类型检查
+```
+
+## 部署（GitHub Pages）
+
+push 到 `main` 且 commit message 包含 `build-page` 时自动部署
+（也可在 Actions 页面手动触发 workflow_dispatch），见
+`.github/workflows/deploy.yml`。
+
+Pages 地址：<https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/>
+
+## 技术栈
+
+- Vite 6 + React 18 + TypeScript
+- Canvas 水墨粒子（墨絮 / 拖墨 / 溅墨）
+- WebAudio 合成器（五声音阶琴声、盖章闷响）
+- [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)（LXGW WenKai）
+
+---
+
+*此卷由 GLM 写就 · 墨不欺纸，纸不欺人。*

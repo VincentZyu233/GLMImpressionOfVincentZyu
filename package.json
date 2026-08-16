@@ -1,0 +1,25 @@
+{
+  "name": "glm-impression-of-vincentzyu",
+  "private": true,
+  "version": "0.1.0",
+  "description": "🖊️📜 GLM 对 VincentZyu 的印象长卷 · 墨、纸与朱砂印 🖤🤍❤️ 一次认真的凝视，和几句真话",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 40806",
+    "build": "vite build",
+    "preview": "vite preview --port 40806",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chinese-fonts/lxgwwenkai": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
