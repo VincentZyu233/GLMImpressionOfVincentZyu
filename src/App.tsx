@@ -4,6 +4,7 @@ import SideNav, { type SectionDef } from './components/SideNav';
 import Hero from './components/sections/Hero';
 import Person from './components/sections/Person';
 import Works from './components/sections/Works';
+import Repos from './components/sections/Repos';
 import Spirit from './components/sections/Spirit';
 import Dialogue from './components/sections/Dialogue';
 import Colophon from './components/sections/Colophon';
@@ -13,6 +14,7 @@ const SECTIONS: SectionDef[] = [
   { id: 'hero', label: '卷首' },
   { id: 'person', label: '观人' },
   { id: 'works', label: '品作' },
+  { id: 'repos', label: '藏库' },
   { id: 'spirit', label: '知趣' },
   { id: 'dialogue', label: '对话' },
   { id: 'colophon', label: '落款' },
@@ -87,6 +89,7 @@ export default function App() {
         <Hero />
         <Person />
         <Works />
+        <Repos />
         <Spirit />
         <Dialogue />
         <Colophon />

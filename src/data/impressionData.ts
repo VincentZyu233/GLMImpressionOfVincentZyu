@@ -144,7 +144,7 @@ export const WORKS = {
   title: '其二 · 品其作',
   subtitle: 'The Works, Tasted',
   lead: '你不造火箭。你修「有趣」的水电管道——然后整条街都亮了。',
-  tail: '……还有约 150 个仓库没写进来。长卷有限，好奇无限。',
+  tail: '亮眼的先看七个——下一节「藏库」，75 个一个都不少。',
   projects: [
     {
       title: 'winload',
@@ -210,7 +210,7 @@ export const WORKS = {
 // ── 其三 · 知其趣 ────────────────────────────────────────────────
 
 export const SPIRIT = {
-  title: '其三 · 知其趣',
+  title: '其四 · 知其趣',
   subtitle: 'The Spirit, Understood',
   quotesIntro: '一个开发者的首页挂着什么，比他的 README 更诚实。你挂的是这些：',
   quotes: [
@@ -269,7 +269,7 @@ export const SPIRIT = {
 // ── 其四 · 对谈 ─────────────────────────────────────────────────
 
 export const DIALOGUE = {
-  title: '其四 · 对话',
+  title: '其五 · 对话',
   subtitle: 'The Dialogue, Recalled',
   intro: '以下对话摘自我们真实的第一次见面。一个字没改。',
   messages: [

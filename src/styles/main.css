@@ -588,7 +588,240 @@ body::before {
   opacity: 1;
 }
 
-/* ── 其三 · 知其趣 ────────────────────────── */
+/* ── 其三 · 遍览藏库 ───────────────────────── */
+
+.repos-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.meta-chip {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  letter-spacing: 0.05em;
+}
+
+.repo-group {
+  margin-top: 46px;
+}
+
+.repo-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.repo-group-title {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.repo-group-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: var(--paper);
+  background: var(--ink-soft);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.repo-group-count {
+  font-size: 13px;
+  color: var(--cinnabar);
+  border: 1px solid rgba(179, 64, 42, 0.35);
+  border-radius: 999px;
+  padding: 2px 12px;
+}
+
+.repo-group-note {
+  margin: 10px 0 20px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-faint);
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.repo-cell {
+  display: flex;
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px 18px 14px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.repo-card:hover {
+  border-color: rgba(38, 34, 28, 0.3);
+  box-shadow: 0 8px 22px rgba(38, 34, 28, 0.09);
+}
+
+.repo-card.open {
+  border-color: rgba(179, 64, 42, 0.4);
+  box-shadow: 0 10px 26px rgba(38, 34, 28, 0.1);
+}
+
+.repo-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.repo-name {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.repo-name:hover {
+  color: var(--glm-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fork-badge {
+  flex-shrink: 0;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.repo-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.repo-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rs {
+  font-variant-numeric: tabular-nums;
+}
+
+.repo-short {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.repo-toggle {
+  align-self: flex-start;
+  font-family: var(--font-kai);
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--cinnabar);
+  background: none;
+  border: 1px solid rgba(179, 64, 42, 0.4);
+  border-radius: 999px;
+  padding: 3px 13px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.repo-toggle:hover {
+  background: var(--cinnabar);
+  color: var(--paper);
+}
+
+.repo-stream {
+  margin-top: 12px;
+  padding: 13px 15px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--cinnabar);
+  border-radius: 0 4px 4px 0;
+}
+
+.stream-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.stream-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+}
+
+.stream-body {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.stream-thinking {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
+
+.stream-thinking .dots::after {
+  content: '……';
+  animation: dots-breathe 1.2s ease-in-out infinite;
+}
+
+@keyframes dots-breathe {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ── 其四 · 知其趣 ────────────────────────── */
 
 .quote-wall {
   display: grid;
@@ -1135,7 +1368,8 @@ body::before {
 
   .proj-grid,
   .quote-wall,
-  .theater {
+  .theater,
+  .repo-grid {
     grid-template-columns: 1fr;
   }
 
