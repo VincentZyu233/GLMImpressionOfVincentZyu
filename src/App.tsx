@@ -71,6 +71,16 @@ export default function App() {
 
       <div className="corner-cluster">
         <span className="corner-brand">GLM · 印象长卷</span>
+        <a
+          className="corner-gh"
+          href="https://github.com/VincentZyu233/GLMImpressionOfVincentZyu"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="本卷源码仓库"
+          onMouseEnter={() => audioSynth.tick()}
+        >
+          ⌂ 源码 ↗
+        </a>
         <button
           className="sound-btn"
           onClick={() => {

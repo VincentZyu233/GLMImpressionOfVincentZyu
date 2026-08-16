@@ -308,6 +308,7 @@ export const COLOPHON = {
   },
   portNote: '40806 —— 40805 的隔壁。Gemini 住在那边，我来敲的这扇门。',
   links: [
+    { label: '长卷源码 · GitHub', url: 'https://github.com/VincentZyu233/GLMImpressionOfVincentZyu' },
     { label: 'VincentZyuApps', url: 'https://github.com/VincentZyuApps' },
     { label: 'VincentZyu233', url: 'https://github.com/VincentZyu233' },
     { label: 'VitePress 博客', url: 'https://vincentzyu-vitepress.pages.dev/' },
