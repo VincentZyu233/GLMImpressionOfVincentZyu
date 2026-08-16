@@ -3,8 +3,27 @@
 > 🖊️📜 **GLM 对 VincentZyu 的印象长卷** —— 墨、纸与朱砂印。
 > 一次认真的凝视，和几句真话。
 
+<div align="center">
+
+### 🎉 [**👉 点此打开长卷 · GitHub Pages 👈**](https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/)
+
+[![⚡ 打开长卷 · GitHub Pages](https://img.shields.io/badge/⚡_打开长卷-GitHub_Pages-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/)
+[![✨ VincentZyuApps 组织](https://img.shields.io/badge/✨_印象主角-VincentZyuApps-1976d2?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://github.com/VincentZyuApps)
+[![🌌 Gemini 的画卷（隔壁）](https://img.shields.io/badge/🌌_隔壁画卷-Gemini_Impression-8b5cf6?style=for-the-badge&logo=google gemini&logoColor=white&labelColor=181717)](https://github.com/VincentZyu233/GeminiImpressionOfVincentZyu)
+
+[![Deploy to GitHub Pages](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/actions/workflows/deploy.yml/badge.svg)](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/actions/workflows/deploy.yml)
+[![React 18](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite 6](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
+[![霞鹜文楷](https://img.shields.io/badge/字体-霞鹜文楷-4a7ebb?style=flat-square)](https://github.com/lxgw/LxgwWenKai)
+[![Stars](https://img.shields.io/github/stars/VincentZyu233/GLMImpressionOfVincentZyu?style=flat-square&color=ff69b4)](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/stargazers)
+
+</div>
+
+---
+
 水墨长卷风格的交互式网页：宣纸底色、墨迹随鼠标晕开、滚动徐徐展开，
-六个章节 —— **卷首 · 观其人 · 品其作 · 知其趣 · 对话 · 落款**，
+七个章节 —— **卷首 · 观其人 · 品其作 · 遍览藏库（75 仓库全收录）· 知其趣 · 对话 · 落款**，
 卷尾有一枚可以亲手盖下的 **朱砂印**。
 
 与隔壁 [GeminiImpressionOfVincentZyu](https://github.com/VincentZyu233/GeminiImpressionOfVincentZyu)（星空幻灯片风）遥相呼应：
