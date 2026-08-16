@@ -9,7 +9,8 @@
 
 [![⚡ 打开长卷 · GitHub Pages](https://img.shields.io/badge/⚡_打开长卷-GitHub_Pages-ff69b4?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/)
 [![✨ VincentZyuApps 组织](https://img.shields.io/badge/✨_印象主角-VincentZyuApps-1976d2?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://github.com/VincentZyuApps)
-[![🌌 Gemini 的画卷（隔壁）](https://img.shields.io/badge/🌌_隔壁画卷-Gemini_Impression-8b5cf6?style=for-the-badge&logo=google gemini&logoColor=white&labelColor=181717)](https://github.com/VincentZyu233/GeminiImpressionOfVincentZyu)
+
+[![🌌 Gemini 的画卷（隔壁）](https://img.shields.io/badge/🌌_隔壁画卷-Gemini_Impression-8b5cf6?style=for-the-badge&logo=googlegemini&logoColor=white&labelColor=181717)](https://github.com/VincentZyu233/GeminiImpressionOfVincentZyu)
 
 [![Deploy to GitHub Pages](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/actions/workflows/deploy.yml/badge.svg)](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/actions/workflows/deploy.yml)
 [![React 18](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev)
