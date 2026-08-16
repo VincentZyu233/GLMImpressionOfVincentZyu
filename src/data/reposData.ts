@@ -188,9 +188,9 @@ export const REPO_GROUPS: RepoGroup[] = [
       {
         name: 'koishi-plugin-mcrenderskin-vincentzyu-fork',
         url: 'https://github.com/VincentZyuApps/koishi-plugin-mcrenderskin-vincentzyu-fork',
-        lang: 'TypeScript', langColor: TS, stars: 2, forks: 0, issues: 0, fork: true,
+        lang: 'TypeScript', langColor: TS, stars: 2, forks: 0, issues: 0,
         short: 'skinView3D 渲染 MC 玩家皮肤披风 3D 图。',
-        long: 'Java 玩家的皮肤和披风，转个角度就能看。fork 之后继续养——你的 fork 从来不是「拿走」，是「接手」。',
+        long: 'Java 玩家的皮肤和披风，转个角度就能看。名字里还留着「fork」，但 GitHub 已经承认它是原创——从 fork 起家，养成了自己的山头，这就是你的方式。',
       },
       {
         name: 'koishi-plugin-mclistener-ws-client',
@@ -223,9 +223,9 @@ export const REPO_GROUPS: RepoGroup[] = [
       {
         name: 'koishi-plugin-pjsk-pptr-for-qq-vincentzyu-fork',
         url: 'https://github.com/VincentZyuApps/koishi-plugin-pjsk-pptr-for-qq-vincentzyu-fork',
-        lang: 'TypeScript', langColor: TS, stars: 0, forks: 0, issues: 0, fork: true,
+        lang: 'TypeScript', langColor: TS, stars: 0, forks: 0, issues: 0,
         short: '世界计划（PJSK）表情包绘制，支持官 Bot。',
-        long: 'Project SEKAI 的表情包绘制插件，额外支持 QQ 官 Bot 的原生 MD 和 mqqapi。二次元浓度检测：通过。',
+        long: 'Project SEKAI 的表情包绘制插件，额外支持 QQ 官 Bot 的原生 MD 和 mqqapi。同样是从 fork 独立出来的原创仓——二次元浓度检测：通过。',
       },
       {
         name: 'koishi-plugin-picstatus',
