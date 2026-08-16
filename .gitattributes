@@ -1,0 +1,18 @@
+# 🔹 行尾统一：仓库内一律 LF，免受 Windows autocrlf 搅扰
+* text=auto eol=lf
+
+# 🔹 语言统计：所有 Markdown 强制计入（GitHub Linguist 默认把
+#    README 等"文档类"排除在语言统计之外，这里显式拉回来）
+*.md linguist-documentation=false
+*.md linguist-generated=false
+*.md linguist-vendored=false
+
+# 🔹 锁文件不参与统计（linguist 默认已排除，这里显式声明）
+package-lock.json linguist-generated=true
+
+# 🔹 二进制文件标记
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff2 binary
