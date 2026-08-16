@@ -14,7 +14,7 @@ export interface RepoItem {
   stars: number;
   forks: number;
   issues: number; // GitHub API 的 open_issues_count（含未合并 PR）
-  fork?: boolean;
+  fork?: boolean; // 徽章规则（并集）：名字带 fork 或 GitHub 标记为 fork
   short: string;
   long: string;
 }
@@ -55,7 +55,7 @@ export const REPO_GROUPS: RepoGroup[] = [
       {
         name: 'koishi-plugin-music-link-vincentzyu-fork',
         url: 'https://github.com/VincentZyuApps/koishi-plugin-music-link-vincentzyu-fork',
-        lang: 'JavaScript', langColor: JS, stars: 12, forks: 4, issues: 0,
+        lang: 'JavaScript', langColor: JS, stars: 12, forks: 4, issues: 0, fork: true,
         short: '音乐搜索下载，歌单五种姿势出图。',
         long: 'music-link 的 fork，但你把它养出了自己的花样：歌单支持纯文字、QQ 官机 Markdown、SVG、Puppeteer、Canvas 五种出图。一个 fork 被你维护得像亲儿子——12 颗星是群友们用脚投的票。',
       },
@@ -188,9 +188,9 @@ export const REPO_GROUPS: RepoGroup[] = [
       {
         name: 'koishi-plugin-mcrenderskin-vincentzyu-fork',
         url: 'https://github.com/VincentZyuApps/koishi-plugin-mcrenderskin-vincentzyu-fork',
-        lang: 'TypeScript', langColor: TS, stars: 2, forks: 0, issues: 0,
+        lang: 'TypeScript', langColor: TS, stars: 2, forks: 0, issues: 0, fork: true,
         short: 'skinView3D 渲染 MC 玩家皮肤披风 3D 图。',
-        long: 'Java 玩家的皮肤和披风，转个角度就能看。名字里还留着「fork」，但 GitHub 已经承认它是原创——从 fork 起家，养成了自己的山头，这就是你的方式。',
+        long: 'Java 玩家的皮肤和披风，转个角度就能看。名字里留着「fork」的出身，GitHub 已记它为原创——从 fork 起家养成自己的山头，这就是你的方式。',
       },
       {
         name: 'koishi-plugin-mclistener-ws-client',
@@ -223,9 +223,9 @@ export const REPO_GROUPS: RepoGroup[] = [
       {
         name: 'koishi-plugin-pjsk-pptr-for-qq-vincentzyu-fork',
         url: 'https://github.com/VincentZyuApps/koishi-plugin-pjsk-pptr-for-qq-vincentzyu-fork',
-        lang: 'TypeScript', langColor: TS, stars: 0, forks: 0, issues: 0,
+        lang: 'TypeScript', langColor: TS, stars: 0, forks: 0, issues: 0, fork: true,
         short: '世界计划（PJSK）表情包绘制，支持官 Bot。',
-        long: 'Project SEKAI 的表情包绘制插件，额外支持 QQ 官 Bot 的原生 MD 和 mqqapi。同样是从 fork 独立出来的原创仓——二次元浓度检测：通过。',
+        long: 'Project SEKAI 的表情包绘制插件，额外支持 QQ 官 Bot 的原生 MD 和 mqqapi。名字带 fork 出身、实已单开山头——二次元浓度检测：通过。',
       },
       {
         name: 'koishi-plugin-picstatus',
