@@ -16,12 +16,12 @@
 ```
 Co-authored-by: GLM <1732805+glm@users.noreply.github.com>
 Co-authored-by: ZCode <3461545+zcode@users.noreply.github.com>
-Co-authored-by: Codex <267193182+codex@users.noreply.github.com>
-Co-authored-by: Claude <81847+claude@users.noreply.github.com>
 ```
 
 - 注意：组织账号（如 zai-org）没有 noreply 邮箱，无法渲染头像；
   `glm@z.ai` 之类的自编邮箱也不会被 GitHub 识别。
+- 协作者只保留 GLM 与 ZCode 两个（用户点名要求：不要 Claude / Codex /
+  bot 等，历史已 filter-branch 清理过，别再加回去）。
 
 ## 🔹 藏库数据更新流程（用户说"更新仓库数据"时）
 
