@@ -721,10 +721,30 @@ body::before {
   margin-bottom: 8px;
 }
 
-.repo-lang {
+.repo-langs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.rl {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.rl .lang-dot {
+  width: 7px;
+  height: 7px;
+}
+
+.rl-pct {
+  color: var(--ink-faint);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
 }
 
 .rs {

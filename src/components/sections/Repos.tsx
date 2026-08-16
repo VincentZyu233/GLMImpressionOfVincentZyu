@@ -71,9 +71,14 @@ function RepoCard({ repo, onOpen }: { repo: RepoItem; onOpen: () => void }) {
         {repo.fork && <span className="fork-badge">fork</span>}
       </div>
       <div className="repo-stats">
-        <span className="repo-lang">
-          <span className="lang-dot" style={{ background: repo.langColor }} />
-          {repo.lang}
+        <span className="repo-langs">
+          {repo.langs.map((l) => (
+            <span key={l.name} className="rl">
+              <span className="lang-dot" style={{ background: l.color }} />
+              {l.name}
+              <span className="rl-pct">{l.pct}%</span>
+            </span>
+          ))}
         </span>
         <span className="rs">★ {repo.stars}</span>
         <span className="rs">⑂ {repo.forks}</span>
@@ -168,9 +173,14 @@ function RepoModal({ repo, onClose }: { repo: RepoItem; onClose: () => void }) {
           </a>
           {repo.fork && <span className="fork-badge">fork</span>}
           <div className="repo-stats">
-            <span className="repo-lang">
-              <span className="lang-dot" style={{ background: repo.langColor }} />
-              {repo.lang}
+            <span className="repo-langs">
+              {repo.langs.map((l) => (
+                <span key={l.name} className="rl">
+                  <span className="lang-dot" style={{ background: l.color }} />
+                  {l.name}
+                  <span className="rl-pct">{l.pct}%</span>
+                </span>
+              ))}
             </span>
             <span className="rs">★ {repo.stars}</span>
             <span className="rs">⑂ {repo.forks}</span>

@@ -27,7 +27,9 @@ Co-authored-by: Claude <81847+claude@users.noreply.github.com>
 
 1. `curl -s "https://api.github.com/orgs/VincentZyuApps/repos?per_page=100&page=1"`
    拉最新快照（open_issues_count 含未合并 PR）。
-2. 手动同步 `src/data/reposData.ts` 的数字；新增仓库要写短评 + 长评两段中文印象。
+2. 手动同步 `src/data/reposData.ts` 的数字；语言占比 Top5 需逐仓调
+   `gh api repos/VincentZyuApps/<repo>/languages` 取回重算；新增仓库要写
+   短评（25-50 字）+ 长评（250-500 字）两段中文印象。
 3. fork 徽章规则（**并集**）：名字带 `fork` **或** API `fork: true`，任一命中即挂。
 4. 更新 `REPOS_SNAPSHOT` 快照日期，跑 `npm run typecheck && npm run build` 验证。
 5. commit 标题带 `build-page` 部署上线。
