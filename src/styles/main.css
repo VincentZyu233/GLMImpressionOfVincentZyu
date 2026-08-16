@@ -1363,6 +1363,9 @@ body::before {
 }
 
 .corner-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 12.5px;
   letter-spacing: 0.12em;
   color: var(--ink-soft);
@@ -1376,6 +1379,13 @@ body::before {
     color 0.25s ease,
     border-color 0.25s ease,
     transform 0.25s ease;
+}
+
+.corner-gh .gh-mark {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .corner-gh:hover {
