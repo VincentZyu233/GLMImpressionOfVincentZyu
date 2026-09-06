@@ -6,6 +6,8 @@
   --paper: #f2ecdf;
   --paper-deep: #eae2cf;
   --paper-card: #f7f2e7;
+  --paper-lift: #fffaef;
+  --paper-glass: rgba(242, 236, 223, 0.85);
   --ink: #26221c;
   --ink-soft: #4a443a;
   --ink-faint: #8d8474;
@@ -14,6 +16,37 @@
   --glm-blue: #2f6fb4;
   --line: rgba(38, 34, 28, 0.16);
   --font-kai: 'LXGW WenKai', 'LXGW WenKai Medium', 'Kaiti SC', 'KaiTi', 'STKaiti', serif;
+}
+
+/* ── 夜卷 · 子夜墨 ─────────────────────────── */
+body.night {
+  --paper: #1d1a16;
+  --paper-deep: #16130f;
+  --paper-card: #26221c;
+  --paper-lift: #2b261f;
+  --paper-glass: rgba(29, 26, 22, 0.82);
+  --ink: #d8cfbc;
+  --ink-soft: #b3a78e;
+  --ink-faint: #7d7361;
+  --cinnabar: #d4552f;
+  --cinnabar-bright: #e8663d;
+  --glm-blue: #6b9fd8;
+  --line: rgba(216, 207, 188, 0.14);
+}
+
+body.night::after {
+  mix-blend-mode: screen;
+  opacity: 0.35;
+}
+
+body.night::before {
+  background: radial-gradient(ellipse at center, transparent 46%, rgba(0, 0, 0, 0.38) 100%);
+}
+
+body.night .hero-big {
+  text-shadow:
+    0 0 22px rgba(216, 207, 188, 0.16),
+    0 0 60px rgba(216, 207, 188, 0.09);
 }
 
 * {
@@ -31,6 +64,9 @@ body {
   color: var(--ink);
   background: var(--paper);
   overflow-x: hidden;
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease;
 }
 
 /* 宣纸颗粒 */
@@ -1156,7 +1192,7 @@ body::before {
 }
 
 .bub-vincent {
-  background: #fffaef;
+  background: var(--paper-lift);
   border: 1px solid var(--line);
   color: var(--ink);
   border-bottom-right-radius: 2px;
@@ -1375,7 +1411,7 @@ body::before {
   font-size: 12.5px;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
-  background: rgba(242, 236, 223, 0.85);
+  background: var(--paper-glass);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 5px 14px;
@@ -1389,7 +1425,7 @@ body::before {
   font-size: 12.5px;
   letter-spacing: 0.12em;
   color: var(--ink-soft);
-  background: rgba(242, 236, 223, 0.85);
+  background: var(--paper-glass);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 5px 14px;
@@ -1414,12 +1450,64 @@ body::before {
   transform: translateY(-1px);
 }
 
+.night-btn {
+  font-family: var(--font-kai);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  color: var(--glm-blue);
+  background: var(--paper-glass);
+  border: 1px solid rgba(47, 111, 180, 0.4);
+  border-radius: 999px;
+  padding: 5px 14px;
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.night-btn:hover {
+  background: var(--glm-blue);
+  color: var(--paper);
+}
+
+.global-toast {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 95;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cinnabar);
+  border-radius: 4px;
+  padding: 9px 20px;
+  box-shadow: 0 10px 30px rgba(20, 17, 12, 0.18);
+  animation: toast-in 0.4s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+  max-width: min(86vw, 560px);
+  text-align: center;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 .sound-btn {
   font-family: var(--font-kai);
   font-size: 12.5px;
   letter-spacing: 0.12em;
   color: var(--cinnabar);
-  background: rgba(242, 236, 223, 0.85);
+  background: var(--paper-glass);
   border: 1px solid rgba(179, 64, 42, 0.4);
   border-radius: 999px;
   padding: 5px 14px;

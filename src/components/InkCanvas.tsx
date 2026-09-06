@@ -50,6 +50,11 @@ export default function InkCanvas() {
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // 墨色跟随主题（昼墨 #26221c / 夜墨 #d8cfbc），由 App 广播 theme-change；
+    // 监听器在 drawAll 就绪后装配（见下方）
+    let ink: [number, number, number] = [38, 34, 28];
+    let onTheme: EventListener = () => {};
+
     // 墨絮：归一化坐标，缓慢漂移
     const motes: Mote[] = Array.from({ length: 22 }, () => ({
       x: Math.random(),
@@ -122,14 +127,31 @@ export default function InkCanvas() {
         const px = m.x * W;
         const py = m.y * H + Math.sin(m.ph) * 6;
         const g = ctx.createRadialGradient(px, py, 0, px, py, m.r * 3.2);
-        g.addColorStop(0, `rgba(38,34,28,${m.a})`);
-        g.addColorStop(1, 'rgba(38,34,28,0)');
+        g.addColorStop(0, `rgba(${ink[0]},${ink[1]},${ink[2]},${m.a})`);
+        g.addColorStop(1, `rgba(${ink[0]},${ink[1]},${ink[2]},0)`);
         ctx.fillStyle = g;
         ctx.beginPath();
         ctx.arc(px, py, m.r * 3.2, 0, 7);
         ctx.fill();
       }
     };
+
+    const drawAll = () => {
+      ctx.clearRect(0, 0, W, H);
+      drawMotes();
+    };
+
+    onTheme = () => {
+      const hex = getComputedStyle(document.body).getPropertyValue('--ink').trim();
+      const m = hex.match(/^#([0-9a-f]{6})$/i);
+      if (m) {
+        const n = parseInt(m[1], 16);
+        ink = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+      }
+      if (reduced) drawAll();
+    };
+    onTheme(new Event('theme-change'));
+    window.addEventListener('theme-change', onTheme);
 
     let raf = 0;
     const frame = () => {
@@ -154,7 +176,7 @@ export default function InkCanvas() {
           rings.splice(i, 1);
           continue;
         }
-        ctx.strokeStyle = `rgba(38,34,28,${r.a})`;
+        ctx.strokeStyle = `rgba(${ink[0]},${ink[1]},${ink[2]},${r.a})`;
         ctx.lineWidth = 1.1;
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.r, 0, 7);
@@ -169,7 +191,7 @@ export default function InkCanvas() {
           drops.splice(i, 1);
           continue;
         }
-        ctx.fillStyle = `rgba(38,34,28,${d.a})`;
+        ctx.fillStyle = `rgba(${ink[0]},${ink[1]},${ink[2]},${d.a})`;
         ctx.beginPath();
         ctx.ellipse(d.x, d.y, d.r, d.r * 0.82, 0, 0, 7);
         ctx.fill();
@@ -195,6 +217,7 @@ export default function InkCanvas() {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerdown', onDown);
       window.removeEventListener('ink-pulse', onPulse as EventListener);
+      window.removeEventListener('theme-change', onTheme);
     };
   }, []);
 

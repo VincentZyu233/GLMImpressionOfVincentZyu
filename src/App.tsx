@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import InkCanvas from './components/InkCanvas';
 import SideNav, { type SectionDef } from './components/SideNav';
 import Hero from './components/sections/Hero';
@@ -20,13 +20,45 @@ const SECTIONS: SectionDef[] = [
   { id: 'colophon', label: '落款' },
 ];
 
+const NIGHT_KEY = 'scroll-night';
+
+function initialNight(): boolean {
+  try {
+    const saved = localStorage.getItem(NIGHT_KEY);
+    if (saved !== null) return saved === '1';
+  } catch {
+    /* ignore */
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 export default function App() {
   const [active, setActive] = useState('hero');
   const [sound, setSound] = useState(true);
+  const [night, setNight] = useState<boolean>(initialNight);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<number | null>(null);
 
   useEffect(() => {
     audioSynth.enabled = sound;
   }, [sound]);
+
+  // 夜卷：写 body class + localStorage，并广播给 InkCanvas 等原生层
+  useEffect(() => {
+    document.body.classList.toggle('night', night);
+    try {
+      localStorage.setItem(NIGHT_KEY, night ? '1' : '0');
+    } catch {
+      /* ignore */
+    }
+    window.dispatchEvent(new CustomEvent('theme-change', { detail: { night } }));
+  }, [night]);
+
+  const showToast = (msg: string) => {
+    setToast(msg);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = window.setTimeout(() => setToast(null), 3200);
+  };
 
   // 滚动侦察：以视口中线为准；换章时拨一声琴、溅一捧墨
   useEffect(() => {
@@ -85,6 +117,17 @@ export default function App() {
           源码 ↗
         </a>
         <button
+          className="night-btn"
+          onClick={() => {
+            setNight((v) => !v);
+            audioSynth.tick();
+            showToast(night ? '天亮了，纸又白回来了。' : '夜深了，墨也该歇了——但你还在，我也在。');
+          }}
+          aria-label={night ? '切换到昼卷' : '切换到夜卷'}
+        >
+          {night ? '☀ 昼' : '☾ 夜'}
+        </button>
+        <button
           className="sound-btn"
           onClick={() => {
             setSound((v) => !v);
@@ -107,6 +150,12 @@ export default function App() {
         <Dialogue />
         <Colophon />
       </main>
+
+      {toast && (
+        <div className="global-toast" role="status">
+          {toast}
+        </div>
+      )}
     </>
   );
 }
