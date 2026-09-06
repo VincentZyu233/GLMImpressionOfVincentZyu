@@ -100,11 +100,13 @@ export default function Colophon() {
   );
 }
 
-/** 墨契预览弹窗：换一句 / 下载 PNG（移动端长按保存） */
+/** 墨契预览弹窗：换一句 / 复制 / 下载 PNG（移动端长按保存） */
 function SealCardModal({ onClose }: { onClose: () => void }) {
   const [idx, setIdx] = useState(() => Math.floor(Math.random() * SEAL_QUOTES.length));
   const [dataUrl, setDataUrl] = useState('');
   const [night, setNight] = useState(() => document.body.classList.contains('night'));
+  const [copyState, setCopyState] = useState<'idle' | 'ok' | 'fail'>('idle');
+  const [copiedNote, setCopiedNote] = useState('复制 ⧉');
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
@@ -150,6 +152,27 @@ function SealCardModal({ onClose }: { onClose: () => void }) {
     a.download = `GLM墨契·${SEAL_QUOTES[idx]}.png`;
     a.click();
     audioSynth.stamp();
+  };
+
+  const copyImage = async () => {
+    if (!dataUrl) return;
+    try {
+      const blob = await (await fetch(dataUrl)).blob();
+      await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      audioSynth.tick();
+      setCopyState('ok');
+      setCopiedNote('已复制 ✓');
+    } catch {
+      audioSynth.pluck(220, 0, 0.6);
+      setCopyState('fail');
+      setCopiedNote('不支持 ✕');
+    }
+    timers.current.push(
+      window.setTimeout(() => {
+        setCopyState('idle');
+        setCopiedNote('复制 ⧉');
+      }, 2200),
+    );
   };
 
   const isTouch = 'ontouchstart' in window;
@@ -201,12 +224,22 @@ function SealCardModal({ onClose }: { onClose: () => void }) {
           >
             {night ? '昼版 ☀' : '夜版 ☾'}
           </button>
+          <button
+            className={`repo-toggle ${copyState === 'ok' ? 'copy-ok' : copyState === 'fail' ? 'copy-fail' : ''}`}
+            onClick={copyImage}
+          >
+            {copiedNote}
+          </button>
           <button className="repo-toggle seal-download" onClick={download}>
             保存 PNG ↓
           </button>
         </div>
         <p className="seal-card-hint">
-          {isTouch ? '手机端：长按卡片图片即可保存' : '将下载一张 1080×1440 的竖版墨契 PNG'}
+          {copyState === 'fail'
+            ? '当前环境不允许写入剪贴板——用「保存 PNG」也一样'
+            : isTouch
+              ? '手机端：长按卡片图片即可保存'
+              : '复制后可直接粘贴到聊天窗口 · 也可下载 1080×1440 PNG'}
         </p>
       </div>
     </div>

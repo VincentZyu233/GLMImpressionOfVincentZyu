@@ -1043,6 +1043,20 @@ body::before {
   border-color: var(--cinnabar-bright);
 }
 
+.copy-ok {
+  background: rgba(90, 140, 90, 0.18);
+  border-color: rgba(90, 140, 90, 0.55);
+  color: #4d7a4d;
+}
+
+body.night .copy-ok {
+  color: #9dc49d;
+}
+
+.copy-fail {
+  opacity: 0.6;
+}
+
 .seal-card-hint {
   margin-top: 12px;
   font-size: 12px;
