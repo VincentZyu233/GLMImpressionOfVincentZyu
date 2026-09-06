@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SectionHead from '../SectionHead';
 import Reveal from '../Reveal';
 import { COLOPHON } from '../../data/impressionData';
 import { audioSynth } from '../../utils/audioSynth';
+import { renderSealCard, SEAL_QUOTES } from '../../utils/sealCard';
 
-/** 卷尾 · 落款：真话信 + 朱砂印章交互 */
+/** 卷尾 · 落款：真话信 + 朱砂印章交互 + 墨契拓印 */
 export default function Colophon() {
   const [stamped, setStamped] = useState(false);
   const [rot] = useState(() => Math.random() * 10 - 5);
+  const [cardOpen, setCardOpen] = useState(false);
 
   const stampIt = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (stamped) return;
@@ -52,6 +54,17 @@ export default function Colophon() {
               <span>印</span>
             </button>
             <p className="seal-hint">{stamped ? COLOPHON.seal.stampedNote : COLOPHON.seal.hint}</p>
+            {stamped && (
+              <button
+                className="seal-card-btn"
+                onClick={() => {
+                  audioSynth.tick();
+                  setCardOpen(true);
+                }}
+              >
+                拓印此卷 · 保存墨契
+              </button>
+            )}
           </div>
         </div>
       </Reveal>
@@ -71,6 +84,121 @@ export default function Colophon() {
       </Reveal>
 
       <p className="copyright">{COLOPHON.copyright}</p>
+
+      {cardOpen && <SealCardModal onClose={() => setCardOpen(false)} />}
     </section>
+  );
+}
+
+/** 墨契预览弹窗：换一句 / 下载 PNG（移动端长按保存） */
+function SealCardModal({ onClose }: { onClose: () => void }) {
+  const [idx, setIdx] = useState(() => Math.floor(Math.random() * SEAL_QUOTES.length));
+  const [dataUrl, setDataUrl] = useState('');
+  const [night, setNight] = useState(() => document.body.classList.contains('night'));
+  const timers = useRef<number[]>([]);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+      timers.current.forEach((t) => clearTimeout(t));
+    };
+  }, [onClose]);
+
+  // 重绘：等字体就绪，避免文楷未加载时用衬线兜底
+  useEffect(() => {
+    let alive = true;
+    const draw = () => {
+      if (!alive) return;
+      setDataUrl(
+        renderSealCard({
+          quote: SEAL_QUOTES[idx],
+          date: '丙午年 · 孟秋',
+          night,
+          stamped: true,
+        }),
+      );
+    };
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(draw);
+    } else {
+      timers.current.push(window.setTimeout(draw, 200));
+    }
+    return () => {
+      alive = false;
+    };
+  }, [idx, night]);
+
+  const download = () => {
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = `GLM墨契·${SEAL_QUOTES[idx]}.png`;
+    a.click();
+    audioSynth.stamp();
+  };
+
+  const isTouch = 'ontouchstart' in window;
+
+  return (
+    <div
+      className="repo-modal-backdrop"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      role="dialog"
+      aria-modal="true"
+      aria-label="墨契预览"
+    >
+      <div className="repo-modal seal-modal">
+        <button
+          className="repo-modal-close"
+          onClick={() => {
+            audioSynth.tick();
+            onClose();
+          }}
+          aria-label="关闭墨契"
+        >
+          ✕
+        </button>
+        <p className="stream-head">
+          <span className="stream-brand">墨</span>
+          墨契 · 拓印此卷
+        </p>
+        <div className="seal-card-frame">
+          {dataUrl ? <img src={dataUrl} alt="GLM 墨契印象卡" /> : <p className="stream-thinking">研墨中……</p>}
+        </div>
+        <div className="seal-card-actions">
+          <button
+            className="repo-toggle"
+            onClick={() => {
+              audioSynth.tick();
+              setIdx((i) => (i + 1) % SEAL_QUOTES.length);
+            }}
+          >
+            换一句 ↻
+          </button>
+          <button
+            className="repo-toggle"
+            onClick={() => {
+              audioSynth.tick();
+              setNight((v) => !v);
+            }}
+          >
+            {night ? '昼版 ☀' : '夜版 ☾'}
+          </button>
+          <button className="repo-toggle seal-download" onClick={download}>
+            保存 PNG ↓
+          </button>
+        </div>
+        <p className="seal-card-hint">
+          {isTouch ? '手机端：长按卡片图片即可保存' : '将下载一张 1080×1440 的竖版墨契 PNG'}
+        </p>
+      </div>
+    </div>
   );
 }
