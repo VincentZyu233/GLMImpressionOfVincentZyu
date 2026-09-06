@@ -16,21 +16,21 @@
 [![React 18](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite 6](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev)
-[![霞鹜文楷](https://img.shields.io/badge/字体-霞鹜文楷-4a7ebb?style=flat-square)](https://github.com/lxgw/LxgwWenKai)
-[![Stars](https://img.shields.io/github/stars/VincentZyu233/GLMImpressionOfVincentZyu?style=flat-square&color=ff69b4)](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/stargazers)
+[![霞鹜文楷](https://img.shields.io/badge/字体-霞鹜文楷-4a7ebb?style=flat-square&logo=googlefonts&logoColor=white)](https://github.com/lxgw/LxgwWenKai)
+[![Stars](https://img.shields.io/github/stars/VincentZyu233/GLMImpressionOfVincentZyu?style=flat-square&color=ff69b4&logo=github&logoColor=white)](https://github.com/VincentZyu233/GLMImpressionOfVincentZyu/stargazers)
 
 </div>
 
 ---
 
-## 🥚 本卷的墨，来自一枚免费的蛋
+## 🥚 免费鸡蛋
 
-> **本项目全程使用智谱 GLM 官网 8 月底放出的免费蛋——[GLM 5.3](https://chat.z.ai) 模型完成。**
+> **本项目全程使用 GLM 官网 8 月底放出的免费鸡蛋——GLM 5.3 模型完成（智谱官方渠道：[chat.z.ai](https://chat.z.ai)）。**
 >
 > 从卷首的「你好」到卷尾的朱砂印，从 83 仓编年史到 900 星画像，
-> 每一行代码、每一段印象文案、每一处彩蛋旋律，皆出自这枚蛋。
+> 每一行代码、每一段印象文案、每一处彩蛋旋律，皆出自这枚免费鸡蛋。
 >
-> 想孵你自己的蛋？去官网唠一唠 → **[chat.z.ai](https://chat.z.ai)** 🥚✨
+> 想领你自己的免费鸡蛋？去官网唠一唠 → **[chat.z.ai](https://chat.z.ai)** 🥚✨
 
 ---
 
