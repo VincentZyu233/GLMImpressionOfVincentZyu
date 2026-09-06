@@ -1666,6 +1666,59 @@ body.night .copy-ok {
   letter-spacing: 0.1em;
 }
 
+/* 拓印按钮：印章同款双线裱边，呼吸微光 */
+.seal-card-btn {
+  font-family: var(--font-kai);
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(179, 64, 42, 0.55);
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  animation: scb-breathe 2.8s ease-in-out infinite;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.seal-card-btn .scb-inner {
+  display: block;
+  border: 1px solid rgba(179, 64, 42, 0.35);
+  border-radius: 3px;
+  padding: 8px 26px;
+  font-size: 14.5px;
+  letter-spacing: 0.22em;
+  color: var(--cinnabar);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.seal-card-btn:hover {
+  background: var(--cinnabar);
+  transform: translateY(-2px);
+  animation-play-state: paused;
+}
+
+.seal-card-btn:hover .scb-inner {
+  color: var(--paper);
+  border-color: rgba(242, 236, 223, 0.6);
+}
+
+.seal-card-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@keyframes scb-breathe {
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgba(179, 64, 42, 0.12);
+  }
+  50% {
+    box-shadow: 0 8px 26px rgba(179, 64, 42, 0.32);
+  }
+}
+
 .port-note {
   margin-top: 34px;
   text-align: center;

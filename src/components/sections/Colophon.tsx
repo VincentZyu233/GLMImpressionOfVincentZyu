@@ -72,7 +72,7 @@ export default function Colophon() {
                   setCardOpen(true);
                 }}
               >
-                拓印此卷 · 保存墨契
+                <span className="scb-inner">拓印此卷 · 保存墨契</span>
               </button>
             )}
           </div>
