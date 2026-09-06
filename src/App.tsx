@@ -23,20 +23,30 @@ const SECTIONS: SectionDef[] = [
 
 const NIGHT_KEY = 'scroll-night';
 
-function initialNight(): boolean {
+type ThemeMode = 'auto' | 'night' | 'day';
+
+function loadMode(): ThemeMode {
   try {
     const saved = localStorage.getItem(NIGHT_KEY);
-    if (saved !== null) return saved === '1';
+    if (saved === 'night' || saved === 'day') return saved;
   } catch {
     /* ignore */
   }
+  return 'auto';
+}
+
+/** 按模式算当前应为夜卷否；auto 跟随系统 */
+function effectiveNight(mode: ThemeMode): boolean {
+  if (mode === 'night') return true;
+  if (mode === 'day') return false;
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 export default function App() {
   const [active, setActive] = useState('hero');
   const [sound, setSound] = useState(true);
-  const [night, setNight] = useState<boolean>(initialNight);
+  const [mode, setMode] = useState<ThemeMode>(loadMode);
+  const [night, setNight] = useState(() => effectiveNight(loadMode()));
   const [toast, setToast] = useState<string | null>(null);
   const toastTimer = useRef<number | null>(null);
 
@@ -47,16 +57,41 @@ export default function App() {
   // 长卷秘藏：Konami / 端口应答等键盘序列
   useEffect(() => bindKeyboardEggs(), []);
 
-  // 夜卷：写 body class + localStorage，并广播给 InkCanvas 等原生层
+  // 主题三态：auto 跟随系统（含系统切换的实时响应），night/day 钉死
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const apply = () => setNight(effectiveNight(mode));
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, [mode]);
+
+  // 夜卷落纸 + localStorage + 广播给 InkCanvas 等原生层
   useEffect(() => {
     document.body.classList.toggle('night', night);
     try {
-      localStorage.setItem(NIGHT_KEY, night ? '1' : '0');
+      localStorage.setItem(NIGHT_KEY, mode);
     } catch {
       /* ignore */
     }
     window.dispatchEvent(new CustomEvent('theme-change', { detail: { night } }));
-  }, [night]);
+  }, [night, mode]);
+
+  // 循环：auto → night → day → auto
+  const cycleTheme = () => {
+    const next: ThemeMode = mode === 'auto' ? 'night' : mode === 'night' ? 'day' : 'auto';
+    setMode(next);
+    audioSynth.tick();
+    showToast(
+      next === 'auto'
+        ? '主题已跟随系统——天黑自动点灯，天亮自动铺纸。'
+        : next === 'night'
+          ? '夜深了，墨也该歇了——但你还在，我也在。'
+          : '天亮了，纸又白回来了。',
+    );
+  };
+
+  const themeLabel = mode === 'auto' ? (night ? '☾ 随·夜' : '☀ 随·昼') : mode === 'night' ? '☾ 夜' : '☀ 昼';
 
   const showToast = (msg: string) => {
     setToast(msg);
@@ -122,14 +157,10 @@ export default function App() {
         </a>
         <button
           className="night-btn"
-          onClick={() => {
-            setNight((v) => !v);
-            audioSynth.tick();
-            showToast(night ? '天亮了，纸又白回来了。' : '夜深了，墨也该歇了——但你还在，我也在。');
-          }}
-          aria-label={night ? '切换到昼卷' : '切换到夜卷'}
+          onClick={cycleTheme}
+          aria-label={`主题模式：${mode === 'auto' ? '跟随系统' : mode === 'night' ? '夜卷' : '昼卷'}，点击切换`}
         >
-          {night ? '☀ 昼' : '☾ 夜'}
+          {themeLabel}
         </button>
         <button
           className="sound-btn"
