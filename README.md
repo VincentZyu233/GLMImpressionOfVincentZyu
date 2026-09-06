@@ -72,8 +72,8 @@ Pages 地址：<https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/>
 | [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org) | 5 | 全部逻辑的类型守卫 |
 | [![Vite](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev) | 6 | 构建工具与热重载开发服务器 |
 | [![LXGW WenKai](https://img.shields.io/badge/霞鹜文楷-LXGW_WenKai-4a7ebb?style=flat-square)](https://github.com/lxgw/LxgwWenKai) | latest | 全站字体，水墨气质的底色 |
-| Canvas 2D | 原生 | 水墨粒子（墨絮 / 拖墨 / 溅墨）与墨契印象卡渲染 |
-| Web Audio API | 原生 | 五声音阶琴声、Rickroll 拨弦与盖章闷响合成器 |
+| [![Canvas 2D](https://img.shields.io/badge/Canvas-2D-e34c26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API) | 原生 | 水墨粒子（墨絮 / 拖墨 / 溅墨）与墨契印象卡渲染 |
+| [![Web Audio API](https://img.shields.io/badge/Web_Audio-API-1190ea?style=flat-square&logo=googlechrome&logoColor=white)](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API) | 原生 | 五声音阶琴声、Rickroll 拨弦与盖章闷响合成器 |
 
 ---
 
