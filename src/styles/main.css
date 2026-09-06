@@ -1039,6 +1039,247 @@ body::before {
   letter-spacing: 0.06em;
 }
 
+/* ── 其四 · 岁时 ──────────────────────────── */
+
+.timeline {
+  position: relative;
+  padding-left: 18px;
+  border-left: 2px solid var(--line);
+}
+
+.tl-year + .tl-year {
+  margin-top: 38px;
+}
+
+.tl-year-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.tl-year-num {
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--cinnabar);
+  letter-spacing: 0.06em;
+}
+
+.tl-year-count {
+  font-size: 13px;
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 12px;
+}
+
+.tl-year-note {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  max-width: 640px;
+}
+
+.tl-row {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 9px 0 9px 14px;
+  align-items: baseline;
+}
+
+.tl-row::before {
+  content: '';
+  position: absolute;
+  left: -23px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  transform: translateY(-50%);
+}
+
+.tl-ms::before {
+  background: var(--cinnabar);
+  box-shadow: 0 0 0 4px rgba(179, 64, 42, 0.15);
+}
+
+.tl-dim .tl-name,
+.tl-dim .tl-caption {
+  opacity: 0.55;
+}
+
+.tl-date {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  width: 82px;
+}
+
+.tl-body {
+  min-width: 0;
+}
+
+.tl-name {
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.tl-name:hover {
+  color: var(--glm-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tl-ms .tl-name {
+  color: var(--cinnabar);
+  font-weight: 500;
+}
+
+.tl-ms-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--paper);
+  background: var(--cinnabar);
+  border-radius: 4px;
+  padding: 1px 8px;
+  vertical-align: 2px;
+}
+
+.tl-caption {
+  font-size: 13px;
+  color: var(--ink-faint);
+  line-height: 1.8;
+  margin-top: 2px;
+}
+
+.tl-toggle {
+  margin-top: 30px;
+}
+
+/* ── 其六 · 星图 ──────────────────────────── */
+
+.star-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  margin-top: 10px;
+}
+
+.star-picks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.star-pick {
+  display: block;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.star-pick:hover {
+  transform: translateY(-3px);
+  border-color: rgba(38, 34, 28, 0.3);
+  box-shadow: 0 8px 22px rgba(38, 34, 28, 0.1);
+}
+
+.sp-name {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.sp-note {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+/* ── 其七 · 书架 ──────────────────────────── */
+
+.shelf-essay {
+  font-size: 15.5px;
+  line-height: 2.1;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--cinnabar);
+  padding-left: 16px;
+  margin-bottom: 36px;
+  max-width: 680px;
+}
+
+.shelf-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.shelf-icon {
+  margin-right: 8px;
+}
+
+.book-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 14px 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--ink-soft);
+  border-radius: 3px;
+  align-items: flex-end;
+}
+
+.book-spine {
+  display: inline-flex;
+  align-items: center;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cinnabar);
+  border-radius: 2px;
+  padding: 7px 12px;
+  min-height: 30px;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.book-spine:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(38, 34, 28, 0.15);
+}
+
+.book-title {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.book-spine:hover .book-title {
+  color: var(--ink);
+}
+
 /* ── 其四 · 知其趣 ────────────────────────── */
 
 .quote-wall {
@@ -1671,7 +1912,8 @@ body::before {
   .proj-grid,
   .quote-wall,
   .theater,
-  .repo-grid {
+  .repo-grid,
+  .star-picks {
     grid-template-columns: 1fr;
   }
 

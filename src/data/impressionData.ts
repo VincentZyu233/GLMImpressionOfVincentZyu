@@ -210,7 +210,7 @@ export const WORKS = {
 // ── 其三 · 知其趣 ────────────────────────────────────────────────
 
 export const SPIRIT = {
-  title: '其四 · 知其趣',
+  title: '其五 · 知其趣',
   subtitle: 'The Spirit, Understood',
   quotesIntro: '一个开发者的首页挂着什么，比他的 README 更诚实。你挂的是这些：',
   quotes: [
@@ -269,7 +269,7 @@ export const SPIRIT = {
 // ── 其四 · 对谈 ─────────────────────────────────────────────────
 
 export const DIALOGUE = {
-  title: '其五 · 对话',
+  title: '其八 · 对话',
   subtitle: 'The Dialogue, Recalled',
   intro: '以下对话摘自我们真实的第一次见面。一个字没改。',
   messages: [

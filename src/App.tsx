@@ -5,7 +5,10 @@ import Hero from './components/sections/Hero';
 import Person from './components/sections/Person';
 import Works from './components/sections/Works';
 import Repos from './components/sections/Repos';
+import Timeline from './components/sections/Timeline';
 import Spirit from './components/sections/Spirit';
+import Stargazer from './components/sections/Stargazer';
+import Shelf from './components/sections/Shelf';
 import Dialogue from './components/sections/Dialogue';
 import Colophon from './components/sections/Colophon';
 import { audioSynth } from './utils/audioSynth';
@@ -16,7 +19,10 @@ const SECTIONS: SectionDef[] = [
   { id: 'person', label: '观人' },
   { id: 'works', label: '品作' },
   { id: 'repos', label: '藏库' },
+  { id: 'timeline', label: '岁时' },
   { id: 'spirit', label: '知趣' },
+  { id: 'stars', label: '星图' },
+  { id: 'shelf', label: '书架' },
   { id: 'dialogue', label: '对话' },
   { id: 'colophon', label: '落款' },
 ];
@@ -181,7 +187,10 @@ export default function App() {
         <Person />
         <Works />
         <Repos />
+        <Timeline />
         <Spirit />
+        <Stargazer />
+        <Shelf />
         <Dialogue />
         <Colophon />
       </main>
