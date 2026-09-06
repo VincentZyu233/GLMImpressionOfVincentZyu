@@ -9,6 +9,7 @@ import Spirit from './components/sections/Spirit';
 import Dialogue from './components/sections/Dialogue';
 import Colophon from './components/sections/Colophon';
 import { audioSynth } from './utils/audioSynth';
+import { bindKeyboardEggs } from './utils/eggManager';
 
 const SECTIONS: SectionDef[] = [
   { id: 'hero', label: '卷首' },
@@ -42,6 +43,9 @@ export default function App() {
   useEffect(() => {
     audioSynth.enabled = sound;
   }, [sound]);
+
+  // 长卷秘藏：Konami / 端口应答等键盘序列
+  useEffect(() => bindKeyboardEggs(), []);
 
   // 夜卷：写 body class + localStorage，并广播给 InkCanvas 等原生层
   useEffect(() => {

@@ -1706,6 +1706,147 @@ body::before {
   }
 }
 
+/* ── 长卷秘藏 · 彩蛋 ───────────────────────── */
+
+.hero-big-tap {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.egg-banner {
+  position: fixed;
+  top: 58px;
+  right: 18px;
+  z-index: 96;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  color: var(--paper);
+  background: var(--cinnabar);
+  border-radius: 4px;
+  padding: 6px 13px;
+  box-shadow: 0 6px 20px rgba(179, 64, 42, 0.35);
+  opacity: 0;
+  transform: translateY(-8px) rotate(2deg);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 0.9, 0.3, 1.1);
+  pointer-events: none;
+}
+
+.egg-banner.show {
+  opacity: 1;
+  transform: translateY(0) rotate(2deg);
+}
+
+.egg-float {
+  position: fixed;
+  left: 50%;
+  top: 38%;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 97;
+  max-width: min(86vw, 520px);
+  text-align: center;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cinnabar);
+  border-radius: 6px;
+  padding: 18px 28px;
+  box-shadow: 0 24px 60px rgba(20, 17, 12, 0.28);
+  opacity: 0;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: auto;
+}
+
+.egg-float.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.egg-float small {
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+
+.egg-float a {
+  color: var(--glm-blue);
+}
+
+.egg-note {
+  position: fixed;
+  top: -60px;
+  z-index: 94;
+  color: var(--cinnabar);
+  opacity: 0.75;
+  pointer-events: none;
+  animation: note-fall linear both;
+}
+
+@keyframes note-fall {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(108vh) rotate(280deg);
+    opacity: 0;
+  }
+}
+
+.egg-found {
+  animation: egg-glow 3s ease-in-out 2 !important;
+  color: var(--cinnabar) !important;
+}
+
+@keyframes egg-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 22px rgba(179, 64, 42, 0.22);
+  }
+  50% {
+    text-shadow:
+      0 0 34px rgba(212, 85, 47, 0.6),
+      0 0 80px rgba(212, 85, 47, 0.3);
+  }
+}
+
+.seal.egg-flip {
+  transform: rotateY(180deg);
+}
+
+.seal.egg-flip::before {
+  content: '与有荣焉';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-size: 17px;
+  letter-spacing: 0.14em;
+  backface-visibility: hidden;
+  animation: seal-gold 4.2s ease both;
+}
+
+@keyframes seal-gold {
+  0%,
+  100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.85);
+  }
+}
+
 /* 减少动态效果偏好 */
 @media (prefers-reduced-motion: reduce) {
   html {

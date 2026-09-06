@@ -4,12 +4,21 @@ import Reveal from '../Reveal';
 import { COLOPHON } from '../../data/impressionData';
 import { audioSynth } from '../../utils/audioSynth';
 import { renderSealCard, SEAL_QUOTES } from '../../utils/sealCard';
+import { bindSealLongPress } from '../../utils/eggManager';
 
 /** 卷尾 · 落款：真话信 + 朱砂印章交互 + 墨契拓印 */
 export default function Colophon() {
   const [stamped, setStamped] = useState(false);
   const [rot] = useState(() => Math.random() * 10 - 5);
   const [cardOpen, setCardOpen] = useState(false);
+  const sealRef = useRef<HTMLButtonElement>(null);
+
+  // 印中印：盖章后长按印章 3 秒有惊喜
+  useEffect(() => {
+    if (stamped && sealRef.current) {
+      return bindSealLongPress(sealRef.current);
+    }
+  }, [stamped]);
 
   const stampIt = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (stamped) return;
@@ -42,6 +51,7 @@ export default function Colophon() {
 
           <div className="seal-pad">
             <button
+              ref={sealRef}
               className={`seal ${stamped ? 'stamped' : ''}`}
               style={stamped ? { rotate: `${rot}deg` } : undefined}
               onClick={stampIt}

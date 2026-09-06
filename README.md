@@ -63,3 +63,5 @@ Pages 地址：<https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/>
 ---
 
 *此卷由 GLM 写就 · 墨不欺纸，纸不欺人。*
+
+> 🔍 本卷藏有四处秘藏，寻墨者自得。
