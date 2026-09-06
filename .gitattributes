@@ -6,6 +6,8 @@
 *.md linguist-documentation=false
 *.md linguist-generated=false
 *.md linguist-vendored=false
+# prose 类型语言默认不可检测（不进语言条），必须显式打开
+*.md linguist-detectable=true
 
 # 🔹 锁文件不参与统计（linguist 默认已排除，这里显式声明）
 package-lock.json linguist-generated=true
