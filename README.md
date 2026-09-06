@@ -64,12 +64,16 @@ push 到 `main` 且 commit message 包含 `build-page` 时自动部署
 
 Pages 地址：<https://vincentzyu233.github.io/GLMImpressionOfVincentZyu/>
 
-## 技术栈
+## 📦 技术栈
 
-- Vite 6 + React 18 + TypeScript
-- Canvas 水墨粒子（墨絮 / 拖墨 / 溅墨）
-- WebAudio 合成器（五声音阶琴声、盖章闷响）
-- [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)（LXGW WenKai）
+| 技术 | 版本 | 说明 |
+|:---|:---|:---|
+| [![React](https://img.shields.io/badge/React-18-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev) | 18 | UI 框架，十节长卷的骨架 |
+| [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org) | 5 | 全部逻辑的类型守卫 |
+| [![Vite](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)](https://vite.dev) | 6 | 构建工具与热重载开发服务器 |
+| [![LXGW WenKai](https://img.shields.io/badge/霞鹜文楷-LXGW_WenKai-4a7ebb?style=flat-square)](https://github.com/lxgw/LxgwWenKai) | latest | 全站字体，水墨气质的底色 |
+| Canvas 2D | 原生 | 水墨粒子（墨絮 / 拖墨 / 溅墨）与墨契印象卡渲染 |
+| Web Audio API | 原生 | 五声音阶琴声、Rickroll 拨弦与盖章闷响合成器 |
 
 ---
 

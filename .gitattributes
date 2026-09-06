@@ -9,8 +9,13 @@
 # prose 类型语言默认不可检测（不进语言条），必须显式打开
 *.md linguist-detectable=true
 
-# 🔹 锁文件不参与统计（linguist 默认已排除，这里显式声明）
+# 🔹 锁文件不参与统计（约 250KB 生成物，会把 JSON 顶成第一大语言，失真）
 package-lock.json linguist-generated=true
+
+# 🔹 JSON 是 data 类型语言，默认不可检测，显式打开（tsconfig 等计入）
+*.json linguist-detectable=true
+*.html linguist-detectable=true
+*.js linguist-detectable=true
 
 # 🔹 二进制文件标记
 *.png binary
