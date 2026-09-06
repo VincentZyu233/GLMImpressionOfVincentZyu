@@ -52,13 +52,14 @@ function palette(night: boolean): Palette {
   return night ? NIGHT : DAY;
 }
 
-/** 竖排金句逐字纵列（两列时右先左后，仿古书） */
+/** 竖排金句：自动分列（每列最多 4 字），两列时右先左后，仿古书 */
 function drawVerticalText(ctx: CanvasRenderingContext2D, text: string, cx: number, cy: number, size: number, color: string) {
   const chars = [...text];
-  const cols = chars.length > 6 ? 2 : 1;
+  const maxPerCol = 4;
+  const cols = Math.ceil(chars.length / maxPerCol);
   const per = Math.ceil(chars.length / cols);
   const lineGap = size * 1.42;
-  const colGap = size * 1.65;
+  const colGap = size * 1.7;
   ctx.save();
   ctx.fillStyle = color;
   ctx.font = `500 ${size}px 'LXGW WenKai', 'KaiTi', serif`;
@@ -187,8 +188,8 @@ export function renderSealCard({ quote, date, night, stamped }: SealCardOptions)
   ctx.fillText('GLM 印象长卷 · 致 VincentZyu', W / 2, 92);
   drawBrushStroke(ctx, W / 2, 122, 300, p.ink);
 
-  // 竖排金句
-  drawVerticalText(ctx, quote, W / 2, 430, 92, p.ink);
+  // 竖排金句（下移至画布视觉中心，避开页眉与落款）
+  drawVerticalText(ctx, quote, W / 2, 500, 92, p.ink);
 
   // 落款日期
   ctx.fillStyle = p.inkSoft;
